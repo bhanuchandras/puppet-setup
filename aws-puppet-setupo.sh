@@ -12,3 +12,5 @@ sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 yum -y install puppetserver
 
 #edit /etc/sysconfig/puppetserver to change JAVA_ARGS="-Xms512m -Xmx512m -XX:MaxPermSize=256m" to appropritate size
+systemctl start puppetserver
+systemctl enable puppetserver
