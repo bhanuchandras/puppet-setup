@@ -1,0 +1,10 @@
+# To get the server details , use agent instead of server to get agent details
+puppet config print --section server
+  
+#To clean the ssl sign from the agent
+find /etc/puppetlabs/puppet/ssl -name $(hostname -f).pem -delete
+ 
+# to sign the pending ssl cert
+puppet cert sign ip-172-31-31-145.ap-south-1.compute.internal
+puppet cert list [-all]
+
