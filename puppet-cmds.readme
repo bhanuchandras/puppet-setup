@@ -8,3 +8,23 @@ find /etc/puppetlabs/puppet/ssl -name $(hostname -f).pem -delete
 puppet cert sign ip-172-31-31-145.ap-south-1.compute.internal
 puppet cert list [-all]
 
+#Hiera info http://www.slashroot.in/puppet-hiera-tutorial-example-configuration
+
+hiera -c /etc/puppetlabs/puppet/hiera.yaml classes
+
+[root@ip-172-31-8-199 hieradata]# cat common.yaml
+---
+classes: java
+[root@ip-172-31-8-199 hieradata]# pwd
+/etc/puppetlabs/code/environments/production/hieradata
+
+Setting up hiera
+
+1) create/modify hiera.yaml
+2) add common.yaml node.yaml etc as per hierarchy
+3) create site.pp to include what hiera is getting.
+4) done
+
+
+[root@ip-172-31-8-199 manifests]# cat site.pp
+hiera_include('classes', '')
