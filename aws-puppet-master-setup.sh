@@ -17,3 +17,5 @@ sed -i 's/-Xms2g/-Xms512m/g' /etc/sysconfig/puppetserver
 
 systemctl start puppetserver
 systemctl enable puppetserver
+
+puppet module upgrade puppetlabs-stdlib
